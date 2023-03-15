@@ -1,6 +1,5 @@
 class Comment < ApplicationRecord
     #relationshsips
-    belongs_to :user
     belongs_to :review
 
     #validations

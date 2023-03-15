@@ -1,7 +1,8 @@
 class Location < ApplicationRecord
     #relationships
-    belongs_to :review
+    has_many :reviews, dependent: :destroy
+    has_many :users, through: :reviews
 
     #validations
-     validates :address, presence: true 
+     validates :address, presence: true
 end

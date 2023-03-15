@@ -1,8 +1,8 @@
 class Review < ApplicationRecord
     #relationshsips
     belongs_to :user
-    has_many :comments
-    has_one :location
+    belongs_to :location
+    has_many :comments, dependent: :destroy
 
     #validation
     validates :experience, presence: true

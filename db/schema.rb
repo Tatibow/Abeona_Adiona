@@ -16,7 +16,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_144731) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id"
     t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,7 +23,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_144731) do
 
   create_table "locations", force: :cascade do |t|
     t.string "address"
-    t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_144731) do
     t.string "safeness"
     t.integer "review_likes"
     t.integer "user_id"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
