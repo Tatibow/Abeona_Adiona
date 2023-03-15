@@ -7,6 +7,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.string :safeness
       t.integer :review_likes
       t.integer :user_id
+      t.integer :location_id
 
       t.timestamps
     end

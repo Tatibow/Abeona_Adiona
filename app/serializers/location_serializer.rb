@@ -1,3 +1,5 @@
 class LocationSerializer < ActiveModel::Serializer
-  attributes :id, :address, :review_id
+  attributes :id, :address
+
+  has_many :reviews 
 end
