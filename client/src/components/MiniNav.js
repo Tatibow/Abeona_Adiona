@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom';
+import {Button} from "@material-ui/core"
 
 function MiniNav({onLogout}) {
 
@@ -16,10 +17,9 @@ function MiniNav({onLogout}) {
 
 return (
     <div className="mini-nav">
-    <h2>Mini Nav</h2>
-     <Link to="/profile"><button>My Profile</button></Link><br/>
+     <Link to="/profile"><Button id="spaceDefault" variant="contained">My Profile</Button></Link><br/>
     <Link to="/login" onClick={handleLogoutClick}>
-        <button >Log out</button>
+        <Button variant="contained">Log out</Button>
       </Link>
    </div>
 )
