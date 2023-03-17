@@ -21,7 +21,7 @@ function App() {
       }
     })
   }, [])
-
+  console.log(currentUser)
   const onLogin = (loggedInUser) => {
     setCurrentUser(loggedInUser)
   }

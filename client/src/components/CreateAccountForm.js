@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {Link} from "react-router-dom"
+import {Button} from "@material-ui/core"
 
 function CreateAccountForm({onLogin}) {
     const [username, setUsername] = useState("")
@@ -91,7 +92,7 @@ return (
                     placeholder="profile picture"
                     onChange={handleProfileImg}
                 />
-            <button type="submit">Create Account</button>
+            <Button type="submit" variant="contained">Create Account</Button>
             </form>
             <br/>
             <div>

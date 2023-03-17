@@ -1,11 +1,19 @@
 import React from "react"
 import MarkerMeanings from "./MarkerMeanings"
 import ReviewForm from "./ReviewForm"
+import MiniNav from "./MiniNav"
+ import LocationReviewList from "./LocationReviewList"
 
-function NavBar() {
+function NavBar({onLogout}) {
 
 return (
-    <h2>Nav Bar</h2>
+    <div className="nav-bar">
+        <MiniNav onLogout={onLogout}/>
+        <h2>Nav Bar</h2>
+        <MarkerMeanings/>
+        <LocationReviewList/>
+        <ReviewForm/>
+    </div>
 )
 }
 

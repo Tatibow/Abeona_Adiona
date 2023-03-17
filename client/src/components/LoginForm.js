@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from 'react-router-dom';
-
+import {Button} from "@material-ui/core"
 
 function LoginForm({ onLogin }) {
     const [username, setUsername] = useState("")
@@ -57,8 +57,9 @@ function LoginForm({ onLogin }) {
                         autoComplete="off"
                         value={password}
                         onChange={handlePassword}
+                        className="spaceDefault"
                     /><br/>
-                    <button type="submit">Log In</button>
+                    <Button type="submit" variant="contained">Log In</Button>
                 </form>
                 <br />
                 <div>
