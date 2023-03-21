@@ -17,18 +17,18 @@ puts "location data seeded!"
 
 #review data
 puts "seeding review data..."
- levittown_review = Review.create!(place_name:"Levittown", experience:"felt uncomfortable I got so many hateful stares ", reccommendations: "no reccomendations", safeness:"unsafe for poc", review_likes:20, user_id:damian.id, location_id: levittown.id )
- center_city_review = Review.create!(place_name:"Center City", experience:"center city is so fun, so many things to do!", reccommendations:"I would highly reccommend insomnia cookie! omg i've never had anything like it!", safeness:"safe for all", review_likes:5, user_id:damian.id, location_id: center_city.id )
- scottsdale_review = Review.create!(place_name:"Scottsdale", experience:"wen't with my girlfriend we got so many stares but I did'nt feel scared", reccommendations: "I would highly reccomend this place called th yard house in on brown ave", safeness:"safe but lgbtq+ proceed with caution", review_likes:12, user_id:jessie.id, location_id: scottsdale.id  )
- times_square_review = Review.create!(place_name:"Times Square", experience:"crowded but I had lots of fun", reccommendations:"would reccomend carmine's italian restaurant on 200 w 44th st", safeness:"safe for poc", review_likes:44, user_id: jessie.id, location_id:times_square.id )
+ levittown_review = Review.create!(place_name:"Levittown", experience:"felt uncomfortable I got so many hateful stares ", recommendations: "no reccomendations", safeness:"unsafe for poc", review_likes:20, user_id:damian.id, location_id: levittown.id )
+ center_city_review = Review.create!(place_name:"Center City", experience:"center city is so fun, so many things to do!", recommendations:"I would highly reccommend insomnia cookie! omg i've never had anything like it!", safeness:"safe for all", review_likes:5, user_id:damian.id, location_id: center_city.id )
+ scottsdale_review = Review.create!(place_name:"Scottsdale", experience:"wen't with my girlfriend we got so many stares but I did'nt feel scared", recommendations: "I would highly recommend this place called th yard house in on brown ave", safeness:"safe but lgbtq+ proceed with caution", review_likes:12, user_id:jessie.id, location_id: scottsdale.id  )
+ times_square_review = Review.create!(place_name:"Times Square", experience:"crowded but I had lots of fun", recommendations:"would reccomend carmine's italian restaurant on 200 w 44th st", safeness:"safe for poc", review_likes:44, user_id: jessie.id, location_id:times_square.id )
 puts "review data seeded!"
 
 #comment data
 puts "seeding comment  data..."
-Comment.create!(content:"I had a similar experience", review_id: levittown_review.id)
-Comment.create!(content:"agreed!", review_id: center_city_review.id)
-Comment.create!(content:"glad you still felt safe", review_id:scottsdale_review.id)
-Comment.create!(content:"that's great!", review_id:times_square_review.id)
+Comment.create!(content:"I had a similar experience", review_id: levittown_review.id, user_id:jessie.id )
+Comment.create!(content:"agreed!", review_id: center_city_review.id, user_id:jessie.id )
+Comment.create!(content:"glad you still felt safe", review_id:scottsdale_review.id, user_id:damian.id )
+Comment.create!(content:"that's great!", review_id:times_square_review.id, user_id:damian.id )
 puts "comment data seeded!"
 
 

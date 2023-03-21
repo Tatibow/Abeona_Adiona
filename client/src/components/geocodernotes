@@ -1,0 +1,35 @@
+
+/*
+get locations then map through locations and do location.address to get all addresses then loop
+through address and pass it to geocoder from address fetch after following the steps below
+then save those coord to a useState and continue to follow the travel advisor video
+*/
+
+//step 1
+import Geocode from "react-geocode";
+
+//step 2
+//set language
+Geocode.setLanguage("en");
+
+//step 3
+Geocode.enableDebug();
+
+//step 4
+// Get latitude & longitude from address.
+Geocode.fromAddress("Eiffel Tower").then(
+  (response) => {
+    const { lat, lng } = response.results[0].geometry.location;
+    console.log(lat, lng);
+  },
+  (error) => {
+    console.error(error);
+  }
+);
+
+/*
+once your able to render markers and filter reviews
+create form, profile, marker meanings if needed, and toggles.
+*/
+
+//anything that red is unsafe, anything blue vbe cautious, anything red unsafe
