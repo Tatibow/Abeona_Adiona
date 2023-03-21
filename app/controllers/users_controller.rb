@@ -12,6 +12,11 @@ class UsersController < ApplicationController
         render json: user, status: :created
     end
 
+
+    def index 
+        render json: User.all, status: :ok
+    end
+
     def update
         user = find_user
         user.update!(user_parmas)

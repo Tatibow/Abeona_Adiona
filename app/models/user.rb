@@ -1,7 +1,8 @@
 class User < ApplicationRecord
     #relationships
     has_many :reviews, dependent: :destroy
-    has_many :comments, through: :reviews
+    has_many :locations, through: :reviews
+
     has_secure_password
 
     #validations
