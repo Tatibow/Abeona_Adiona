@@ -5,6 +5,12 @@ class ReviewsController < ApplicationController
         render json: reviews, status: :ok
     end
 
+    def comment_index
+        review = find_review
+        comments = review.comments
+        render json: comments, includes: :review
+    end
+
     def show
         review = find_review
         render json: user, status: :ok

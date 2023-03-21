@@ -7,5 +7,5 @@ class Review < ApplicationRecord
     #validation
     validates :experience, presence: true
     validates :safeness, presence: true
-    validates :place_name, presence: true
+   
 end
