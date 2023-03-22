@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react"
 import ProfileTitleBar from "./ProfileTitleBar"
 import ProfileReviewList from "./ProfileReviewList"
-
+// import ProfileEditor from "./ProfileEditor";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function Profile() {
     // use this link as alt for profile pic
@@ -17,6 +18,10 @@ function Profile() {
             setUserReviews(user.reviews)
         })
     }, [])
+
+
+
+
 
 const likeCount = userReviews.map(review => review.review_likes)
 const totalSumLikes = likeCount.reduce((accum, el) => accum += el, 0)
@@ -45,6 +50,13 @@ return (
     <div className="profile">
     <ProfileTitleBar userData={userData} amountOfReviews={userReviews.length} totalSumLikes={totalSumLikes}/>
     <ProfileReviewList userReviews={userReviews}  deleteMyReview={deleteMyReview} onEditReview={onEditReview}/>
+    {/* <Router>
+      <Switch>
+          <Route path="/profeditor">
+            <ProfileEditor />
+          </Route>
+        </Switch>
+      </Router> */}
     </div>
 )
 }

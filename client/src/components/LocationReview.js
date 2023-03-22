@@ -4,7 +4,7 @@
 //  import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
  import CommentIcon from '@material-ui/icons/Comment';
 
-function LocationReview ({id, placeName, experience, recommendations, safeness, reviewLikes, reviewer, reviewLocation, currentUser, addLikes/*comments*/}) {
+function LocationReview ({id, placeName, experience, recommendations, safeness, reviewLikes, reviewer, reviewLocation, currentUser, addLikes, review/*comments*/}) {
      const [likes, setLikes] = useState(reviewLikes)
     const [commentSectionToggle, setCommentSectionToggle] = useState(false)
     const [userComments, setUserComments] = useState([])
@@ -61,11 +61,11 @@ function LocationReview ({id, placeName, experience, recommendations, safeness, 
         .then(addLikes)
     }
 
-
+    const unknownPerson = "https://i.postimg.cc/tT1wHRYc/Unknown-person.jpg"
 
  return  (
     <div className="review">
-        <p>{reviewer}</p>
+      <p><img src={review.user.profile_img} alt={unknownPerson} className="review-pic"/>{reviewer}</p>
         <h4>{placeName}</h4> <p>{safeness}</p>
         <p>{reviewLocation}</p>
         <div>

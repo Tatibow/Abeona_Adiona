@@ -26,6 +26,7 @@ function LocationReviewList ({reviews, currentUser, addLikes}) {
                 reviewLocation={review.location.address}
                 comments={review.comments}
                 addLikes={addLikes}
+              review={review}
                 key={review.id}
              />
              </Grid>

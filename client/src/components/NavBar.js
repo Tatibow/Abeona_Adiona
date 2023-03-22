@@ -37,7 +37,7 @@ function NavBar({onLogout, currentUser, user, locations}) {
         return review
       } else if (review.place_name.toLowerCase().includes(searchInput.toLowerCase())) {
         return review
-      } 
+      }
     })
 
     const addLikes = (addedLikes) => {
@@ -57,14 +57,17 @@ function NavBar({onLogout, currentUser, user, locations}) {
         setMiniNavToggle(!miniNavToggle)
     }
 
+    const unknownPerson = "https://i.postimg.cc/tT1wHRYc/Unknown-person.jpg"
+
+
 return (
     <div className="nav-bar">
-        <Button onClick={handleMiniNavToggle}><h2>{user.username}</h2></Button>
+        <Button onClick={handleMiniNavToggle}><h2><img src={user.profile_img} alt={unknownPerson} className="profile-pic"/>{user.username}</h2></Button>
         {miniNavToggle ? <MiniNav onLogout={onLogout}/> : null}
         <SearchBar searchInput={searchInput} onSearch={onSearch}/>
         {/* <MarkerMeanings/> */}
         <Button variant="contained" onClick={handleReviewToggle}>See Reviews</Button>
-        { reviewToggle ? <LocationReviewList reviews={searchFilter} currentUser={currentUser} addLikes={addLikes}/*reviews={reviews}*/ /> : null}
+        { reviewToggle ? <LocationReviewList user={user} reviews={searchFilter} currentUser={currentUser} addLikes={addLikes} /> : null}
         <Button variant="contained" onClick={handleReviewFormToggle}>ReviewForm</Button>
         {reviewFormToggle ? <ReviewForm user={user} addNewReview={addNewReview} locations={locations}/> : null}
     </div>
