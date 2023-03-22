@@ -4,32 +4,33 @@
 
  import Comment from "./Comment"
 
-function CommentSection({currentUser, comments, reviewId, addComment}) {
+function CommentSection({comments, reviewId, addComment, onDelete}) {
     const [comment, setComment] = useState("")
 
     const commentMap = comments.map(comment => {
        return <Comment
          id={comment.id}
-         commenter={comment.user.username}
          comment={comment.content}
+         onDelete={onDelete}
          key={comment.id}
         />
     })
-    console.log("line 18: ", user)
+
 
    function handleCommentSubmit(e) {
     e.preventDefault()
 
 
-    fetch(`/review/${reviewId}/comments`, {
+    fetch("/comments", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({content: comment, review_id: reviewId, user_id: currentUser.id})
+        body: JSON.stringify({content: comment, review_id: reviewId})
     })
     .then(res => res.json())
     .then(addComment)
+    setComment("")
    }
 
  return (

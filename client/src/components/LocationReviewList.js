@@ -3,7 +3,7 @@ import { Grid, MenuItem, FormControl, Select } from "@material-ui/core"
 import useStyles from "./ListStyles.js"
 import LocationReview from "./LocationReview"
 
-function LocationReviewList ({reviews, currentUser}) {
+function LocationReviewList ({reviews, currentUser, addLikes}) {
     const [safeness, setSafeness]= useState("All")
     const classes = useStyles()
 
@@ -25,6 +25,7 @@ function LocationReviewList ({reviews, currentUser}) {
                 reviewer={review.reviewer}
                 reviewLocation={review.location.address}
                 comments={review.comments}
+                addLikes={addLikes}
                 key={review.id}
              />
              </Grid>

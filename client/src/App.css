@@ -2,7 +2,6 @@
   text-align: center;
   font-family: Helvetica;
 
-
 }
 
 .App-logo {
@@ -55,6 +54,7 @@
     width: 400px;
     /* height: 418px */
     height: "100%";
+    border:2px solid brown;
 
 }
 
@@ -104,4 +104,47 @@
   border-radius: 5px; */
   /* overflow: hidden;
   box-shadow:0 5px 5px rgba(0,0,0,0.5); */
+}
+
+.form {
+  height: "100%"
+}
+
+.profile-review {
+  border:1px solid brown;
+  background-color:antiquewhite;
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+.login-form {
+  width: 100%;
+  background-color: rgb(129, 186, 186);
+  height: 100%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.create-account-form {
+  width: 100%;
+  background-color: rgb(129, 186, 186);
+  height: 100%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+
+.topSpaceDefault {
+  margin-top: 35px
+}
+#topSpaceDefault {
+  margin-top: 35px
+}
+
+.review-edit-form {
+  width: 100%;
+  background-color: rgb(129, 186, 186);
+  height: 100%;
+  text-align: center;
+  border-radius: 5px;
 }

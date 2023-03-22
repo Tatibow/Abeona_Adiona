@@ -1,12 +1,11 @@
  import React, {useEffect, useState} from "react"
  import CommentSection from "./CommentSection"
  import FavoriteIcon from '@material-ui/icons/Favorite';
- import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+//  import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
  import CommentIcon from '@material-ui/icons/Comment';
 
-function LocationReview ({id, placeName, experience, recommendations, safeness, reviewLikes, reviewer, reviewLocation, currentUser, /*comments*/}) {
-    const [likeButton, setLikeButton] = useState(false)
-    const [likes, setLikes] = useState(reviewLikes)
+function LocationReview ({id, placeName, experience, recommendations, safeness, reviewLikes, reviewer, reviewLocation, currentUser, addLikes/*comments*/}) {
+     const [likes, setLikes] = useState(reviewLikes)
     const [commentSectionToggle, setCommentSectionToggle] = useState(false)
     const [userComments, setUserComments] = useState([])
 
@@ -14,11 +13,14 @@ function LocationReview ({id, placeName, experience, recommendations, safeness, 
     //     setUserComments(comments)
     // }, [comments])
 
+
       useEffect(() => {
-        fetch(`/reviews/${id}/comments`)
-        .then(res => res.json())
-        .then(commentData => setUserComments(commentData))
-      }, [])
+        //  setInterval(() => {
+          fetch(`/reviews/${id}/comments`)
+          .then(res => res.json())
+          .then(commentData => setUserComments(commentData))
+        //  },2000)
+      }, [id])
 
     const addComment = (newComment) => {
         const commentData = [...userComments, newComment]
@@ -29,23 +31,34 @@ function LocationReview ({id, placeName, experience, recommendations, safeness, 
         setCommentSectionToggle(!commentSectionToggle)
      }
 
+     const onDelete = (id) => {
+       let deletion = userComments.filter(comment => {
+         return comment.id !== id
+       })
+        fetch(`/comments/${id}`, {
+           method: "DELETE",
+           headers: {
+            "Content-Type": "application/json"
+           }
+        })
+        .then(res => res.json())
+        .then(setUserComments(deletion))
+     }
 
-    function handleLikeButton() {
-        setLikeButton(!likeButton)
 
-        if(likeButton === true) {
-            setLikes(likes + 1)
-        }
+    function handleLikes() {
+        setLikes(likes + 1)
+
 
         fetch(`/reviews/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({review_likes: likes})
+            body: JSON.stringify({review_likes: likes + 1})
         })
         .then(res => res.json())
-        .then(res => console.log(res))
+        .then(addLikes)
     }
 
 
@@ -61,15 +74,10 @@ function LocationReview ({id, placeName, experience, recommendations, safeness, 
         <div>
         <p>{recommendations}</p>
         </div>
-      {likeButton ? (
-      <button onClick={handleLikeButton}><FavoriteIcon/></button>
-      ) : (
-        <button onClick={handleLikeButton}><FavoriteBorderIcon/></button>
-      )}
+      <button onClick={handleLikes}><FavoriteIcon/></button>
      <p>{likes}</p>
-
       <button onClick={handleCommentSectionToggle}><CommentIcon/></button>
-      {commentSectionToggle ? <CommentSection reviewId={id} currentUser={currentUser} comments={userComments} addComment={addComment}/>  : null}
+      {commentSectionToggle ? <CommentSection reviewId={id} currentUser={currentUser} comments={userComments} addComment={addComment} onDelete={onDelete}/>  : null}
     </div>
  )
 }

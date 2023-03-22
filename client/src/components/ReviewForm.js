@@ -1,11 +1,11 @@
 import React, {useState} from "react"
-import {InputBase, Button, TextField,  MenuItem, Select, FormControl } from "@material-ui/core"
+import {InputBase, Button, TextField,  MenuItem, Select} from "@material-ui/core"
 
 
 
 
 
-function ReviewForm({user, addNewReview}) {
+function ReviewForm({user, addNewReview, locations}) {
     // review usestate
 const [placeName, setPlaceName] = useState("")
 const [experience, setExperience] = useState("")
@@ -16,9 +16,11 @@ const [safeness, setSafeness] = useState("")
 //location usestate
 const [address, setAddress] = useState("")
 
+let globalLoc;
+locations.forEach(loc => globalLoc = loc)
 
     function handleLocationSubmit(e) {
-        e.PreventDefault()
+        e.preventDefault()
 
        let newLocation = {
             address: address
@@ -33,6 +35,7 @@ const [address, setAddress] = useState("")
         })
         .then(res => res.json())
         .then(handleReviewSubmit)
+        setAddress("")
     }
 
     function handleReviewSubmit(e, newLocation) {
@@ -45,7 +48,7 @@ const [address, setAddress] = useState("")
             safeness: safeness,
             review_likes: 0,
             user_id: user.id,
-            location_id: newLocation.id
+            location_id:globalLoc.id
         }
 
         fetch("/reviews", {
@@ -57,6 +60,11 @@ const [address, setAddress] = useState("")
         })
         .then(res => res.json())
         .then(addNewReview)
+
+        setPlaceName("")
+        setExperience("")
+       setRecommendations("")
+       setSafeness("")
     }
 
     return (
@@ -69,6 +77,7 @@ const [address, setAddress] = useState("")
               value={address}
               placeholder="enter locations address..."
             /> <br/>
+              <Button type="submit" variant="contained">add location</Button>
         </form>
             <form onSubmit={handleReviewSubmit} className="review-form">
             <InputBase
@@ -77,6 +86,7 @@ const [address, setAddress] = useState("")
               onChange={(e) => setPlaceName(e.target.value)}
               value={placeName}
               placeholder="establishment/city name/town name/etc..."
+              id="spaceDefault"
             /> <br/>
             <TextField
              id="outlined-textarea"
@@ -86,6 +96,7 @@ const [address, setAddress] = useState("")
               onChange={(e) =>  setExperience(e.target.value)}
               value={experience}
               label="What was your experience?"
+              className="spaceDefault"
         />  <br/>
            <TextField
              id="outlined-textarea"
@@ -95,6 +106,7 @@ const [address, setAddress] = useState("")
               onChange={(e) => setRecommendations(e.target.value)}
               value={recommendations}
               label='Any recommendations? If not enter "no recommendations"'
+              className="spaceDefault"
         />  <br/>
         <Select value={safeness} onChange={(e) => setSafeness(e.target.value)}>
             <MenuItem value="safe for poc">safe for poc</MenuItem>
@@ -112,8 +124,8 @@ const [address, setAddress] = useState("")
             <MenuItem value="safe for all">safe for all</MenuItem>
             <MenuItem value="unsafe for all">unsafe for all</MenuItem>
          </Select>
-            </form> 
             <Button type="submit" variant="contained">Submit Review</Button>
+            </form>
       </div>
     )
 
