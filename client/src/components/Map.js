@@ -31,7 +31,7 @@ function Map({locations}) {
     zoom: 14
   };
 
-  const addresses = locations?.map(location => location.address)
+   const addresses = locations?.map(location => location.address)
 
 
 
@@ -73,12 +73,12 @@ function Map({locations}) {
   return (
     <div className="map-container" style={{ height: '85vh', width: '100%'}}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key:""}}
+        bootstrapURLKeys={{ key:"AIzaSyDw9m1mBBDIPGMCEZmCuaTJcBmcth229vs"}}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         center={coordinates}
         margin={[50, 50, 50, 50]}
-        options={{mapId:""}}
+        options={{mapId:"23251313a92fddc7"}}
         onChange={(e) => {
             setCoordinates({lat: e.center.lat, lng: e.center.lng})
              setBounds({ne: e.marginBounds.ne, sw: e.marginBounds.sw})

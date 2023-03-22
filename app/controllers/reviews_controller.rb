@@ -11,6 +11,12 @@ class ReviewsController < ApplicationController
         render json: comments, includes: :review
     end
 
+    # def comment_create
+    #     review = find_review
+    #     comments = review.comments.create()
+    #     render json: comments, includes: :review
+    # end
+
     def show
         review = find_review
         render json: user, status: :ok
@@ -23,7 +29,7 @@ class ReviewsController < ApplicationController
 
     def update
         review = find_review
-        review.update!(review_parmas)
+        review.update!(review_params)
         render json: review, status: :ok
     end
 
@@ -40,6 +46,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.permit(:place_name, :experience, :reccommendations, :safeness, :review_likes, :user_id, :location_id )
+        params.permit(:place_name, :experience, :recommendations, :safeness, :review_likes, :user_id, :location_id )
     end
 end

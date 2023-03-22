@@ -1,12 +1,14 @@
-import React from "react"
+import React  from "react"
 import { Link } from 'react-router-dom';
+// import Button from "@material-ui/core"
 
-function ProfileTitleBar() {
+function ProfileTitleBar({userData, amountOfReviews, totalSumLikes}) {
 
 return (
-    <div className="title-bar">
-    <h2>title bar</h2>
-    <Link to="/home">back home</Link>
+    <div className="title-bar" id="spaceDefault">
+    <h2>{userData.username}'s Profile</h2>
+    <h4>You have: {amountOfReviews} reviews & {totalSumLikes} likes</h4>
+    <Link to="/home"><button variant="contained">back home</button></Link>
     </div>
 )
 }

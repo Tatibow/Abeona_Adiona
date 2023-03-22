@@ -1,13 +1,15 @@
  import React from "react"
- import DeleteIcon from '@material-ui/icons/Delete'   
+ import DeleteIcon from '@material-ui/icons/Delete'
 
 
-function Comment({commenter, comment}) {
+function Comment({comment, id, onDelete}) {
 
+  function handleDelete() {
+   onDelete(id)
+  }
  return (
     <div className="comment">
-      <p>{commenter}</p>
-      <p>{comment}</p>
+      <p>{comment}<DeleteIcon onClick={handleDelete}/></p>
     </div>
  )
 }

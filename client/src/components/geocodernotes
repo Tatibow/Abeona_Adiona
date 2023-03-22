@@ -1,4 +1,4 @@
-
+// my notes
 /*
 get locations then map through locations and do location.address to get all addresses then loop
 through address and pass it to geocoder from address fetch after following the steps below
@@ -33,3 +33,6 @@ create form, profile, marker meanings if needed, and toggles.
 */
 
 //anything that red is unsafe, anything blue vbe cautious, anything red unsafe
+
+
+//- tatiana
