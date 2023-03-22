@@ -5,6 +5,7 @@ import CreateAccountForm from "./components/CreateAccountForm"
 import Home from "./components/Home"
 import Profile from "./components/Profile"
 import WelcomePage from "./components/WelcomePage"
+//  import ProfileEditor from "./components/ProfileEditor";
 import './App.css';
 
 
@@ -29,6 +30,25 @@ function App() {
     setCurrentUser(null)
   }
 
+  // User profile data
+  // const [userData, setUserData] =  useState({})
+  // const [userReviews, setUserReviews] = useState([])
+
+  // useEffect(() => {
+  //     fetch("/me")
+  //     .then(res => res.json())
+  //     .then(user => {
+  //         setUserData(user)
+  //         setUserReviews(user.reviews)
+  //     })
+  // }, [])
+
+  // const updateAccount = (updatedUser) => {
+  //     setUserData(userData.id === updatedUser.id ? updatedUser : userData)
+  // }
+
+// end of user profile data
+
   return (
     <div className="App">
       <Router>
@@ -46,8 +66,11 @@ function App() {
             <Home currentUser={currentUser} onLogout={onLogout}/>
           </Route>
           <Route path="/profile">
-            <Profile />
+            <Profile /*userData={userData} setUserData={setUserData} userReviews={userReviews} setUserReviews={setUserReviews}*//>
           </Route>
+          {/* <Route path="/profeditor">
+            <ProfileEditor userData={userData} updateAccount={updateAccount}/>
+          </Route> */}
         </Switch>
       </Router>
     </div>
