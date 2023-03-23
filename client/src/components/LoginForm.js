@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from 'react-router-dom';
-import {Button} from "@material-ui/core"
+import {Button, Input} from "@material-ui/core"
 
 function LoginForm({ onLogin }) {
     const [username, setUsername] = useState("")
@@ -41,7 +41,7 @@ function LoginForm({ onLogin }) {
             <div className="form">
                 <form onSubmit={handleSubmit}>
                     <p>Username</p>
-                    <input
+                    <Input
                         type="text"
                         id="username"
                         autoComplete="off"
@@ -51,7 +51,7 @@ function LoginForm({ onLogin }) {
                     />
 
                      <p>Password</p>
-                    <input
+                    <Input
                         type="password"
                         id="password"
                         autoComplete="off"

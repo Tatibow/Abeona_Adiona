@@ -1,5 +1,6 @@
  import React from "react"
  import DeleteIcon from '@material-ui/icons/Delete'
+ import {Input} from "@material-ui/core"
 
 
 function Comment({comment, id, onDelete}) {
