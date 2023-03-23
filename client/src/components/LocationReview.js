@@ -65,13 +65,19 @@ function LocationReview ({id, placeName, experience, recommendations, safeness, 
 
  return  (
     <div className="review">
-      <p><img src={review.user.profile_img} alt={unknownPerson} className="review-pic"/>{reviewer}</p>
-        <h4>{placeName}</h4> <p>{safeness}</p>
+      <p className="review-heading"><img src={review.user.profile_img} alt={unknownPerson} className="review-pic"/>{reviewer}</p>
+          <p><i><u>place/establishment name:</u></i></p>
+        <h4>{placeName}</h4>
+        <p><i><u>safeness:</u></i></p>
+         <p><strong>{safeness}</strong></p>
+         <p><i><u>location/address:</u></i></p>
         <p>{reviewLocation}</p>
         <div>
+        <p><i><u>my experience:</u></i></p>
         <p>{experience}</p>
         </div>
         <div>
+        <p><i><u>any recommendations?:</u></i></p>
         <p>{recommendations}</p>
         </div>
       <button onClick={handleLikes}><FavoriteIcon/></button>

@@ -4,7 +4,7 @@ import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined"
 import GoogleMapReact from "google-map-react"
 import Geocode from "react-geocode"
 //import ComponentMarker from "./ComponentMarker"
-Geocode.setApiKey("AIzaSyDw9m1mBBDIPGMCEZmCuaTJcBmcth229vs");
+Geocode.setApiKey();
 Geocode.setLanguage("en")
 Geocode.enableDebug();
 // import {Paper, Typography, useMediaQuery} from "@material-ui/core";
@@ -73,7 +73,7 @@ function Map({locations}) {
   return (
     <div className="map-container" style={{ height: '85vh', width: '100%'}}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key:"AIzaSyDw9m1mBBDIPGMCEZmCuaTJcBmcth229vs"}}
+        bootstrapURLKeys={{ key:}}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         center={coordinates}

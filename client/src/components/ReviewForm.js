@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {InputBase, Button, TextField,  MenuItem, Select} from "@material-ui/core"
+import {Input, Button, TextField,  MenuItem, Select} from "@material-ui/core"
 
 
 
@@ -69,8 +69,9 @@ locations.forEach(loc => globalLoc = loc)
 
     return (
       <div className="form">
+        <h3>first add your location...</h3>
         <form onSubmit={handleLocationSubmit} className="location-form">
-            <InputBase
+            <Input
               type="text"
               name="address"
               onChange={(e) => setAddress(e.target.value)}
@@ -79,8 +80,9 @@ locations.forEach(loc => globalLoc = loc)
             /> <br/>
               <Button type="submit" variant="contained">add location</Button>
         </form>
+        <h3>now submit your review!</h3>
             <form onSubmit={handleReviewSubmit} className="review-form">
-            <InputBase
+            <Input
               type="text"
               name="placeName"
               onChange={(e) => setPlaceName(e.target.value)}
@@ -108,7 +110,7 @@ locations.forEach(loc => globalLoc = loc)
               label='Any recommendations? If not enter "no recommendations"'
               className="spaceDefault"
         />  <br/>
-        <Select value={safeness} onChange={(e) => setSafeness(e.target.value)}>
+        <Select value={safeness} onChange={(e) => setSafeness(e.target.value)} id="topSpaceDefault">
             <MenuItem value="safe for poc">safe for poc</MenuItem>
             <MenuItem value="safe but poc proceed with caution">poc proceed with caution</MenuItem>
             <MenuItem value="safe for moc but unsafe for woc">safe for moc but unsafe for woc</MenuItem>
@@ -124,7 +126,8 @@ locations.forEach(loc => globalLoc = loc)
             <MenuItem value="safe for all">safe for all</MenuItem>
             <MenuItem value="unsafe for all">unsafe for all</MenuItem>
          </Select>
-            <Button type="submit" variant="contained">Submit Review</Button>
+         <h4>select safeness</h4>
+            <Button type="submit" id="topSpaceDefault" variant="contained">Submit Review</Button>
             </form>
       </div>
     )

@@ -16,15 +16,20 @@ const handleDelete = () => {
 
   return (
 <div className="profile-review">
-        <p>{reviewer}</p>
-        <h4>{placeName}</h4> <p>{safeness}</p>
+        <p className="review-heading">{reviewer}</p>
+   <p><i><u>place/establishment name:</u></i></p>
+        <h4>{placeName}</h4>
+        <p><i><u>safeness:</u></i></p>
+        <p>{safeness}</p>
         {/* <p>{reviewLocation}</p> */}
+          <p><i><u>my experience:</u></i></p>
         <div>
         <p>{experience}</p>
         </div>
+         <p><i><u>any recommendations?:</u></i></p>
         <div>
         <p>{recommendations}</p>
-        <p>likes: {reviewLikes}</p>
+        <p>this review got: {reviewLikes} likes</p>
         </div>
       <DeleteIcon onClick={handleDelete}/> <EditIcon onClick={handleEditFormToggle}/>
      { editFormToggle ? <div className="review-edit-form">

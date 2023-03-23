@@ -6,8 +6,8 @@ import { Grid} from "@material-ui/core"
 function ProfileReviewList({userReviews, deleteMyReview, onEditReview}) {
 
       const userReviewMap = userReviews.map(userReview => {
-       return  <Grid item key={userReview.id} xs={12}>
-       <ProfileReview
+    //    return  <Grid item key={userReview.id} xs={12}>
+       return <ProfileReview
         id={userReview.id}
         placeName={userReview.place_name}
         experience={userReview.experience}
@@ -20,7 +20,7 @@ function ProfileReviewList({userReviews, deleteMyReview, onEditReview}) {
         // reviewLocation={userReview.location.address}
         key={userReview.id}
         />
-        </Grid>
+        // </Grid>
       })
 
     return(

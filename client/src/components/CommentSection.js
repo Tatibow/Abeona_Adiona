@@ -1,8 +1,9 @@
  import React, {useState} from "react"
- import {Button} from "@material-ui/core"
+ import {Button, Input} from "@material-ui/core"
 
 
  import Comment from "./Comment"
+
 
 function CommentSection({comments, reviewId, addComment, onDelete}) {
     const [comment, setComment] = useState("")
@@ -38,12 +39,12 @@ function CommentSection({comments, reviewId, addComment, onDelete}) {
             {commentMap}
             <div className="comment-form">
                 <form onSubmit={handleCommentSubmit}>
-                    <input
+                    <Input
                         type="text"
                         name="comment"
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
-                        placeholder="Add comment..."
+                        placeholder="comment..."
                     />
                     <Button type="submit">Leave Comment</Button>
                 </form>
