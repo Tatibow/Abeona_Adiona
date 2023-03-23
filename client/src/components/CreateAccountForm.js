@@ -91,7 +91,7 @@ return (
                     value={profileImg}
                     placeholder="profile picture"
                     onChange={handleProfileImg}
-                />
+                /><br/>
             <Button type="submit" variant="contained">Create Account</Button>
             </form>
             <br/>
