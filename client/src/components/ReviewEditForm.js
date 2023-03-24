@@ -55,7 +55,7 @@ const [newSafeness, setNewSafeness] = useState(safeness)
                     name="newExperience"
                     onChange={(e) => setNewExperience(e.target.value)}
                     value={newExperience}
-                    label="What was your experience?"
+                    placeholder="What was your experience?"
                     className="spaceDefault" />  <br />
                 <TextField
                     id="outlined-textarea"
@@ -64,7 +64,7 @@ const [newSafeness, setNewSafeness] = useState(safeness)
                     name="newRecommendations"
                     onChange={(e) => setNewRecommendations(e.target.value)}
                     value={newRecommendations}
-                    label='Any recommendations? If not enter "no recommendations"'
+                    placeholder='Any recommendations? If not enter "no recommendations"'
                     className="spaceDefault" />  <br />
                 <Select value={newSafeness} onChange={(e) => setNewSafeness(e.target.value)}>
                     <MenuItem value="safe for poc">safe for poc</MenuItem>
@@ -81,7 +81,7 @@ const [newSafeness, setNewSafeness] = useState(safeness)
                     <MenuItem value="unsafe for women & lgbtq+">unsafe for women & lgbtq+</MenuItem>
                     <MenuItem value="safe for all">safe for all</MenuItem>
                     <MenuItem value="unsafe for all">unsafe for all</MenuItem>
-                </Select>
+                </Select><br/>
                 <Button type="submit" variant="contained">Submit Updated Review</Button>
             </form>
       </div>

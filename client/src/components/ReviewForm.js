@@ -70,6 +70,7 @@ locations.forEach(loc => globalLoc = loc)
     return (
       <div className="form">
         <h3>first add your location...</h3>
+        <p style={{color:"red"}}>(do NOT submit your review before adding your location!)</p>
         <form onSubmit={handleLocationSubmit} className="location-form">
             <Input
               type="text"

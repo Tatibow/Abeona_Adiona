@@ -5,7 +5,7 @@ import {Button, Input} from "@material-ui/core"
 function LoginForm({ onLogin }) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    // const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([])
 
     function handleUsername(e) {
         setUsername(e.target.value)
@@ -25,16 +25,22 @@ function LoginForm({ onLogin }) {
             },
             body: JSON.stringify({ username, password })
         })
-            .then(res => res.json())
-            .then(loggedInUser => {
-                onLogin(loggedInUser);
-                window.location.href = '/home'
-                setUsername("");
-                setPassword("");
-            });
+            .then(res => {
+                if(res.ok) {
+                    res.json().then(loggedInUser => {
+                        onLogin(loggedInUser);
+                        window.location.href = '/home'
+                        setUsername("");
+                        setPassword("");
+                    });
+                } else {
+                    res.json().then(res => setErrors(res.error))
+                }
+            })
 
     }
 
+    console.log("line 43|errors: ", errors)
     return (
         <div className="login-form">
             <h4>Login and If you don't already have an account click the create account button!</h4>
@@ -66,6 +72,7 @@ function LoginForm({ onLogin }) {
                 <Link to='/signup'>Create account here!</Link>
                 </div>
             </div>
+            {errors ? <h1 style={{color: "red"}}>{errors}</h1> : null}
         </div>
     )
 }
