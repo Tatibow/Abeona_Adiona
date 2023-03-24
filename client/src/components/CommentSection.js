@@ -5,14 +5,16 @@
  import Comment from "./Comment"
 
 
-function CommentSection({comments, reviewId, addComment, onDelete}) {
+function CommentSection({comments, reviewId, addComment, onDelete, addCommentLikes}) {
     const [comment, setComment] = useState("")
 
     const commentMap = comments.map(comment => {
        return <Comment
          id={comment.id}
          comment={comment.content}
+         commentLikes={comment.comment_likes}
          onDelete={onDelete}
+         addCommentLikes={addCommentLikes}
          key={comment.id}
         />
     })

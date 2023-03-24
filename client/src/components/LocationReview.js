@@ -27,6 +27,11 @@ function LocationReview ({id, placeName, experience, recommendations, safeness, 
         setUserComments(commentData)
     }
 
+    const addCommentLikes = (newLikes) => {
+       const withNewLikes = userComments.map(comment => comment.id === newLikes.id ? newLikes : comment)
+       setUserComments(withNewLikes)
+    }
+
      function handleCommentSectionToggle() {
         setCommentSectionToggle(!commentSectionToggle)
      }
@@ -83,7 +88,7 @@ function LocationReview ({id, placeName, experience, recommendations, safeness, 
       <button onClick={handleLikes}><FavoriteIcon/></button>
      <p>{likes}</p>
       <button onClick={handleCommentSectionToggle}><CommentIcon/></button>
-      {commentSectionToggle ? <CommentSection reviewId={id} currentUser={currentUser} comments={userComments} addComment={addComment} onDelete={onDelete}/>  : null}
+      {commentSectionToggle ? <CommentSection reviewId={id} currentUser={currentUser} comments={userComments} addComment={addComment} onDelete={onDelete} addCommentLikes={addCommentLikes}/>  : null}
     </div>
  )
 }

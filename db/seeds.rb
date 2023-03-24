@@ -25,10 +25,10 @@ puts "review data seeded!"
 
 #comment data
 puts "seeding comment  data..."
-Comment.create!(content:"I had a similar experience", review_id: levittown_review.id)
-Comment.create!(content:"agreed!", review_id: center_city_review.id )
-Comment.create!(content:"glad you still felt safe", review_id:scottsdale_review.id )
-Comment.create!(content:"that's great!", review_id:times_square_review.id)
+Comment.create!(content:"I had a similar experience",comment_likes: 0, review_id: levittown_review.id)
+Comment.create!(content:"agreed!", comment_likes: 5,review_id: center_city_review.id )
+Comment.create!(content:"glad you still felt safe",comment_likes: 9, review_id:scottsdale_review.id )
+Comment.create!(content:"that's great!",comment_likes: 0, review_id:times_square_review.id)
 puts "comment data seeded!"
 
 

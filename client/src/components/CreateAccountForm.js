@@ -7,7 +7,7 @@ function CreateAccountForm({onLogin}) {
     const [password, setPassword] = useState()
     const [email, setEmail] = useState("")
     const [profileImg, setProfileImg] = useState("")
-
+    const [errors, setErrors] = useState([])
     function handleUsername(e) {
         setUsername(e.target.value)
     }
@@ -42,13 +42,18 @@ function CreateAccountForm({onLogin}) {
             if(res.ok) {
                 res.json().then(newUser => onLogin(newUser))
                 window.location.href = '/home'
+                setUsername("")
+                setPassword("")
+                setEmail("")
+                setProfileImg("")
+            } else {
+                res.json().then(res => setErrors(Object.entries(res.errors)))
             }
         })
-        setUsername("")
-        setPassword("")
-        setEmail("")
-        setProfileImg("")
+
     }
+    const errorMessages = errors.map(error => `${error[0]} ${error[1]}`)
+
 
 return (
     <div className="create-account-form">
@@ -99,6 +104,7 @@ return (
             If you already have an account: <Link exact to='/login'>Back to login</Link>
             </div>
         </div>
+        {errors ? <h2 style={{color: "red"}}>{errorMessages[0]}</h2> : null}
         </div>
 )
 }
