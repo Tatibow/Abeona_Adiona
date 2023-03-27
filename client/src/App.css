@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   font-family: Helvetica;
+  background-color: rgb(129, 186, 186);
 
 }
 
@@ -69,14 +70,14 @@
   width: 100px
 }
 
-.map-container {
+/* .map-container {
   position: relative;
 }
 /* style={{ height: '85vh', width: '100%' }} */
-.marker-container {
+/* .marker-container {
   position: "absolute";
   transform:'translate(-50%, -50%)';
-}
+} */
 
 .mini-nav {
   border:1px solid brown;
@@ -102,12 +103,27 @@
 }
 
 .review {
-  border:1px solid brown;
-  /* margin: 15px;
-  border-radius: 5px; */
-  /* overflow: hidden;
-  box-shadow:0 5px 5px rgba(0,0,0,0.5); */
+  border:5px solid brown;
+  background-color:antiquewhite;
+  margin: 1rem;
+  /* border-radius: 5px; */
+  width:400px;
+  margin:20px;
+  border-radius: 20px;
+  margin-top: 175px
 }
+
+
+
+ .location-reviews {
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  justify-content: center;
+ }
+
 
 .form {
   height: "100%";
@@ -138,8 +154,6 @@
   width:400px;
   margin:20px;
   border-radius: 20px;
-  /* overflow: hidden;
-  box-shadow:0 5px 5px rgba(0,0,0,0.5) */
   margin-top: 175px
 }
 
@@ -215,4 +229,32 @@
 
 .comment-section {
   border:4px solid brown;
+}
+
+
+/* new map css */
+  #mapContainer {
+    background-color: white;
+    padding: 30px;
+  }
+
+  #mapClipPath {
+    height: 500px;
+    width: 800px;
+    background-color: white;
+    position: relative;
+  }
+/* new map css end */
+
+#nav-spaceDefault {
+  margin-bottom: 20px;
+}
+
+
+/* .comment {
+
+} */
+
+.comment-section {
+  background-color:rgb(237, 218, 193);
 }

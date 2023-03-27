@@ -13,8 +13,8 @@ function LocationReviewList ({reviews, currentUser, addLikes}) {
     })
 
      const reviewsMap = safenessFilter?.map(review => {
-          return  <Grid item key={review.id} xs={12}>
-            <LocationReview
+        //   return  <Grid item key={review.id} xs={12}>
+           return  <LocationReview
                 id={review.id}
                 currentUser={currentUser}
                 placeName={review.place_name}
@@ -29,11 +29,10 @@ function LocationReviewList ({reviews, currentUser, addLikes}) {
               review={review}
                 key={review.id}
              />
-             </Grid>
+            //  </Grid>
      })
 return (
-    <div >
-    <h4>Reviews</h4>
+    <div>
     <FormControl className={classes.formControl}>
         <Select value={safeness} onChange={(e) => setSafeness(e.target.value)}>
             <MenuItem value="All">All</MenuItem>
@@ -53,9 +52,11 @@ return (
             <MenuItem value="unsafe for all">unsafe for all</MenuItem>
          </Select>
      </FormControl>
-     <Grid container spacing={3} className={classes.list}>
+     {/* <Grid container spacing={3} className={classes.list}> */}
+     <div className="location-reviews">
          {reviewsMap}
-    </Grid>
+         </div>
+    {/* </Grid> */}
     </div>
 )
 }

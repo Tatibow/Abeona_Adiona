@@ -33,7 +33,7 @@ const handleDelete = () => {
         </div>
       <DeleteIcon onClick={handleDelete}/> <EditIcon onClick={handleEditFormToggle}/>
      { editFormToggle ? <div className="review-edit-form">
-         <ReviewEditForm placeName={placeName} experience={experience} recommendations={recommendations} safeness={safeness} userReviewId={id}  onEditReview={onEditReview}/>
+         <ReviewEditForm placeName={placeName} experience={experience} recommendations={recommendations} safeness={safeness} userReviewId={id}  onEditReview={onEditReview} setEditFormToggle={setEditFormToggle}/>
       </div> : null }
     </div>
  )

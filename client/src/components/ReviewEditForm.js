@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import {InputBase, Button, TextField,  MenuItem, Select} from "@material-ui/core"
 
 
- function ReviewEditForm({userReviewId, onEditReview, placeName, experience, recommendations, safeness}) {
+ function ReviewEditForm({userReviewId, onEditReview, placeName, experience, recommendations, safeness,setEditFormToggle}) {
      // review usestate
 const [newPlaceName, setNewPlaceName] = useState(placeName)
 const [newExperience, setNewExperience] = useState(experience)
@@ -35,6 +35,7 @@ const [newSafeness, setNewSafeness] = useState(safeness)
             setNewExperience("")
             setNewRecommendations("")
             setNewSafeness("")
+            setEditFormToggle(false)
         }
 
 

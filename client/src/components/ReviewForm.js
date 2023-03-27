@@ -5,7 +5,7 @@ import {Input, Button, TextField,  MenuItem, Select} from "@material-ui/core"
 
 
 
-function ReviewForm({user, addNewReview, locations}) {
+function ReviewForm({user, addNewReview, locations, addNewLocation}) {
     // review usestate
 const [placeName, setPlaceName] = useState("")
 const [experience, setExperience] = useState("")
@@ -34,11 +34,11 @@ locations.forEach(loc => globalLoc = loc)
             body: JSON.stringify(newLocation)
         })
         .then(res => res.json())
-        .then(handleReviewSubmit)
+        .then(addNewLocation)
         setAddress("")
     }
 
-    function handleReviewSubmit(e, newLocation) {
+    function handleReviewSubmit(e) {
         e.preventDefault()
 
         let newReview = {
@@ -70,7 +70,7 @@ locations.forEach(loc => globalLoc = loc)
     return (
       <div className="form">
         <h3>first add your location...</h3>
-        <p style={{color:"red"}}>(do NOT submit your review before adding your location!)</p>
+        <p style={{color:"red"}}>(make sure to add your location before starting your review!)</p>
         <form onSubmit={handleLocationSubmit} className="location-form">
             <Input
               type="text"

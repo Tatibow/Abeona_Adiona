@@ -8,6 +8,7 @@ function SearchBar({searchInput, onSearch}) {
 
 
 return (
+    <>
     <Box display="flex">
         {/* <Autocomplete> */}
             <div className="search">
@@ -21,6 +22,14 @@ return (
                 </div>
         {/* </Autocomplete> */}
     </Box>
+        {/* <p>
+            <strong>note:</strong>
+            <i> when entering a state it could either be abbreviated or spelled out fully
+                for example if i'm looking for places in california I would search both "california"
+                and "CA".
+            </i>
+        </p> */}
+        </>
 )
 }
 
