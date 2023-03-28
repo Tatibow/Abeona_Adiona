@@ -6,10 +6,8 @@ This is a travel experience review application meant to keep POC, women, and oth
 ## User Stories
 As a user I can: 
 - Create an account and login
-- Browse the map and see colored pins that mark if a place is safe or unsafe for a specific group
 - View and Like other peoples reviews 
-- Drop pins and leave a review about my experince 
-- remove pins
+- Leave a review about my own experience
 - delete and edit reviews 
 - Visit my profile where i'm able to see all of my reviews, how many I have, and the amount of likes 
 - logout 
@@ -27,5 +25,4 @@ As a user I can:
 - Rails 6.1.4
 - PostgreSQL 13.3
 - Bcrypt 3.1.7
-- Google maps api 
-- Google geocode api 
+- Material-UI
