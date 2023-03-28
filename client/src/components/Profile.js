@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import ProfileTitleBar from "./ProfileTitleBar"
 import ProfileReviewList from "./ProfileReviewList"
 import ProfileEditor from "./ProfileEditor";
+import CarouselComponent from "./CarouselComponent"
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function Profile() {
@@ -58,9 +59,10 @@ const onEditReview = (updatedReview)  => {
 
 return (
     <div className="profile">
-    <ProfileTitleBar userData={userData} amountOfReviews={userReviews.length} totalSumLikes={totalSumLikes} handleProfEditTog={handleProfEditTog}/>
-   {profEditTog ? <ProfileEditor userData={userData} updateAccount={updateAccount} setProfEditTog={setProfEditTog} /> : null}
+    <ProfileTitleBar userData={userData} amountOfReviews={userReviews.length} totalSumLikes={totalSumLikes} handleProfEditTog={handleProfEditTog}   updateAccount={updateAccount} setProfEditTog={setProfEditTog} profEditTog={profEditTog}/>
+   {/* {profEditTog ? <ProfileEditor userData={userData} updateAccount={updateAccount} setProfEditTog={setProfEditTog} /> : null} */}
     <ProfileReviewList userReviews={userReviews}  deleteMyReview={deleteMyReview} onEditReview={onEditReview}/>
+    {/* <CarouselComponent userReviews={userReviews}  deleteMyReview={deleteMyReview} onEditReview={onEditReview}/>/> */}
     </div>
 )
 }

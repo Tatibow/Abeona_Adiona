@@ -46,7 +46,7 @@
 
 .title-bar {
   background-color:antiquewhite;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -151,7 +151,7 @@
   background-color:antiquewhite;
   margin: 1rem;
   /* border-radius: 5px; */
-  width:400px;
+  /* width:400px; */
   margin:20px;
   border-radius: 20px;
   margin-top: 175px
@@ -190,6 +190,7 @@
   /* text-align: center; */
   border-radius: 5px;
   border:1px solid brown;
+
 }
 
 
@@ -213,11 +214,14 @@
   text-align: center;
   border-radius: 5px; */
   background-color:antiquewhite;
-  position: absolute;
+  position: fixed;
   width: 200px;
   /* height: 418px */
   height:"100%";
   border:2px solid brown;
+  top: 0;
+  left: 150px
+
 }
 
 .review-pic {
@@ -257,4 +261,8 @@
 
 .comment-section {
   background-color:rgb(237, 218, 193);
+}
+
+.carousel {
+  margin-top: 180px;
 }
