@@ -8,7 +8,10 @@ import { Carousel } from 'react-responsive-carousel';
 
 function ProfileReviewList({userReviews, deleteMyReview, onEditReview}) {
 
-      const userReviewMap = userReviews.map(userReview => {
+  const sortUserReviews = userReviews.sort((a,b) => b.review_likes - a.review_likes)
+
+
+      const userReviewMap = sortUserReviews.map(userReview => {
     //    return  <Grid item key={userReview.id} xs={12}>
        return <ProfileReview
         id={userReview.id}
