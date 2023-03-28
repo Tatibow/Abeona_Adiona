@@ -12,7 +12,9 @@ function LocationReviewList ({reviews, currentUser, addLikes}) {
         return review.safeness === safeness
     })
 
-     const reviewsMap = safenessFilter?.map(review => {
+    const sortReviews = safenessFilter.sort((a,b) => b.review_likes - a.review_likes)
+
+     const reviewsMap =sortReviews?.map(review => {
         //   return  <Grid item key={review.id} xs={12}>
            return  <LocationReview
                 id={review.id}
