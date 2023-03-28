@@ -1,13 +1,13 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 // import MarkerMeanings from "./MarkerMeanings"
 import ReviewForm from "./ReviewForm"
 import MiniNav from "./MiniNav"
 import SearchBar from "./SearchBar"
 
-import { Button} from "@material-ui/core"
+import { Button } from "@material-ui/core"
 //  import LocationReviewList from "./LocationReviewList"
 
-function NavBar({onLogout, currentUser, user, locations, searchInput, onSearch, addNewReview, addNewLocation}) {
+function NavBar({ onLogout, currentUser, user, locations, searchInput, onSearch, addNewReview, addNewLocation }) {
     // const [searchInput, setSearchInput] = useState("")
     // const [reviews, setReviews] = useState([])
     // const [reviewToggle, setReviewToggle] = useState(false)
@@ -68,17 +68,17 @@ function NavBar({onLogout, currentUser, user, locations, searchInput, onSearch, 
     const unknownPerson = "https://i.postimg.cc/tT1wHRYc/Unknown-person.jpg"
 
 
-return (
-    <div className="nav-bar" >
-        <Button onClick={handleMiniNavToggle}><h2><img src={user.profile_img} alt={unknownPerson} className="profile-pic"/>{user.username}</h2></Button>
-        {miniNavToggle ? <MiniNav onLogout={onLogout}/> : null}
-        <SearchBar searchInput={searchInput} onSearch={onSearch}/>
-        {/* <Button variant="contained" onClick={handleReviewToggle}>See Reviews</Button> */}
-        {/* { reviewToggle ? <LocationReviewList user={user} reviews={searchFilter} currentUser={currentUser} addLikes={addLikes} /> : null} */}
-        <Button variant="contained" onClick={handleReviewFormToggle}>ReviewForm</Button>
-        {reviewFormToggle ? <ReviewForm user={user} addNewReview={addNewReview} locations={locations} addNewLocation={addNewLocation}/> : null}
-    </div>
-)
+    return (
+        <div className="nav-bar" >
+            <Button onClick={handleMiniNavToggle}><h2><img src={user.profile_img} alt={unknownPerson} className="profile-pic" />{user.username}</h2></Button>
+            {miniNavToggle ? <MiniNav onLogout={onLogout} /> : null}
+            <SearchBar searchInput={searchInput} onSearch={onSearch} />
+            {/* <Button variant="contained" onClick={handleReviewToggle}>See Reviews</Button> */}
+            {/* { reviewToggle ? <LocationReviewList user={user} reviews={searchFilter} currentUser={currentUser} addLikes={addLikes} /> : null} */}
+            <Button variant="contained" onClick={handleReviewFormToggle}>ReviewForm</Button>
+            {reviewFormToggle ? <ReviewForm user={user} addNewReview={addNewReview} locations={locations} addNewLocation={addNewLocation} /> : null}
+        </div>
+    )
 }
 
 export default NavBar

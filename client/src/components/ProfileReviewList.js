@@ -1,6 +1,9 @@
 import React from "react"
 import ProfileReview from "./ProfileReview"
-import { Grid} from "@material-ui/core"
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+// import { Grid} from "@material-ui/core"
 
 
 function ProfileReviewList({userReviews, deleteMyReview, onEditReview}) {
@@ -24,11 +27,16 @@ function ProfileReviewList({userReviews, deleteMyReview, onEditReview}) {
       })
 
     return(
-        <div id="topSpaceDefault"className="user-reviews">
-            {userReviewMap}
-        </div>
-    )
+      <div className="carousel">
+            <Carousel>
+                  {userReviewMap}
+            </Carousel>
+            </div>
+      )
 
-}
+    }
 
+    // <div id="topSpaceDefault"className="user-reviews">
+    //     {userReviewMap}
+    // </div>
 export default ProfileReviewList
