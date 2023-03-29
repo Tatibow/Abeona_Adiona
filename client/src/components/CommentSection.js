@@ -8,7 +8,9 @@
 function CommentSection({comments, reviewId, addComment, onDelete, addCommentLikes}) {
     const [comment, setComment] = useState("")
 
-    const commentMap = comments.map(comment => {
+    const sortComments = comments.sort((a,b) => b.comment_likes - a.comment_likes)
+
+    const commentMap = sortComments.map(comment => {
        return <Comment
          id={comment.id}
          comment={comment.content}

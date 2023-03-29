@@ -8,7 +8,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 function ProfileReviewList({userReviews, deleteMyReview, onEditReview}) {
 
-  const sortUserReviews = userReviews.sort((a,b) => b.review_likes - a.review_likes)
+  const sortUserReviews = userReviews.sort((a,b) => b.created_at.split("T")[0].split("-")[2] - a.created_at.split("T")[0].split("-")[2])
 
 
       const userReviewMap = sortUserReviews.map(userReview => {
@@ -23,7 +23,7 @@ function ProfileReviewList({userReviews, deleteMyReview, onEditReview}) {
         reviewer={userReview.reviewer}
         deleteMyReview={deleteMyReview}
         onEditReview={onEditReview}
-        // reviewLocation={userReview.location.address}
+        dateStamp={userReview.created_at}
         key={userReview.id}
         />
         // </Grid>

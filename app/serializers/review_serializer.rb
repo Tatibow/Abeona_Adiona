@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :place_name, :experience, :recommendations, :safeness, :review_likes, :user_id, :location_id, :reviewer, :address
+  attributes :id, :place_name, :experience, :recommendations, :safeness, :review_likes, :user_id, :location_id, :reviewer, :address, :created_at
 
   belongs_to :location
   belongs_to :user
