@@ -4,15 +4,12 @@
 //  import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
  import CommentIcon from '@material-ui/icons/Comment';
 
-function LocationReview ({id, placeName, experience, recommendations, safeness, reviewLikes, reviewer, reviewLocation, currentUser, addLikes, review/*comments*/}) {
+function LocationReview ({id, placeName, experience, recommendations, safeness, reviewLikes, reviewer, reviewLocation, currentUser, addLikes, review, dateStamp}) {
      const [likes, setLikes] = useState(reviewLikes)
     const [commentSectionToggle, setCommentSectionToggle] = useState(false)
     const [userComments, setUserComments] = useState([])
 
-    // useEffect(() => {
-    //     setUserComments(comments)
-    // }, [comments])
-
+    // console.log("line 12 | date stamp: ", dateStamp.split("T")[0])
 
       useEffect(() => {
         //  setInterval(() => {
@@ -71,6 +68,7 @@ function LocationReview ({id, placeName, experience, recommendations, safeness, 
  return  (
     <div className="review">
       <p className="review-heading"><img src={review.user.profile_img} alt={unknownPerson} className="review-pic"/>{reviewer}</p>
+          <p>{dateStamp.split("T")[0]}</p>
           <p><i><u>place/establishment name:</u></i></p>
         <h4>{placeName}</h4>
         <p><i><u>safeness:</u></i></p>
@@ -85,8 +83,8 @@ function LocationReview ({id, placeName, experience, recommendations, safeness, 
         <p><i><u>any recommendations?:</u></i></p>
         <p>{recommendations}</p>
         </div>
-      <button onClick={handleLikes}><FavoriteIcon/></button>
-     <p>{likes}</p>
+      <button onClick={handleLikes}><FavoriteIcon/> {likes}</button>
+     {/* <p>{likes}</p> */}
       <button onClick={handleCommentSectionToggle}><CommentIcon/></button>
       {commentSectionToggle ? <CommentSection reviewId={id} currentUser={currentUser} comments={userComments} addComment={addComment} onDelete={onDelete} addCommentLikes={addCommentLikes}/>  : null}
     </div>

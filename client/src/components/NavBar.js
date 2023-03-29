@@ -75,7 +75,7 @@ function NavBar({ onLogout, currentUser, user, locations, searchInput, onSearch,
             <SearchBar searchInput={searchInput} onSearch={onSearch} />
             {/* <Button variant="contained" onClick={handleReviewToggle}>See Reviews</Button> */}
             {/* { reviewToggle ? <LocationReviewList user={user} reviews={searchFilter} currentUser={currentUser} addLikes={addLikes} /> : null} */}
-            <Button variant="contained" onClick={handleReviewFormToggle}>ReviewForm</Button>
+            <Button variant="contained" onClick={handleReviewFormToggle}>Review Form</Button>
             {reviewFormToggle ? <ReviewForm user={user} addNewReview={addNewReview} locations={locations} addNewLocation={addNewLocation} /> : null}
         </div>
     )
